@@ -28,16 +28,20 @@ divWrapper.appendChild(fragmentHeader);
 
 
 /* FRAGMENT WITH MAIN and H1 */
-const mainFragment = document.createDocumentFragment();
+let fragmentMain = document.createDocumentFragment();
 
     const mainElem = document.createElement("main");
+    fragmentMain.append(mainElem);
+
+    let divContainerMain = document.createElement("div");
+    divContainerMain.className = "container";
+    mainElem.prepend(divContainerMain);
+
     const h1Elem = document.createElement("h1");
     h1Elem.innerText = "Book Catalog";
+    divContainerMain.append(h1Elem);
 
-    mainFragment.append(mainElem);
-    mainElem.append(h1Elem);
-
-    headerElem.after(mainFragment);
+    headerElem.after(fragmentMain);
 /* // FRAGMENT WITH MAIN and H1 */
 
 
@@ -110,8 +114,6 @@ for(let i=0; i < 10; i++){
 
 
 /* FETCHING .JSON WITH BOOKS AND FILLING THE CARD FRAGMENTS WITH THEM*/
-let fragmentMain = document.createDocumentFragment();
-
 const bookListURL = '/assets/extra-materials/books.json';
 const config ={
 mode:"no-cors",
