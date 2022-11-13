@@ -27,8 +27,18 @@ but it will be hidden from our eyes */
 
 /* Grid */
 
+.wrapper{
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 1500px;
+    /* border: 2px dashed red; */
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+}
+
 .container {
-	width: 1160px;
+	width: 1190px;
 	padding-left: 15px;
 	padding-right: 15px;
 	margin-left: auto;
