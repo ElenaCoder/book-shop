@@ -1,0 +1,18 @@
+footer{
+    height: 200px;
+    /* background-color: rgb(63,78,79); */
+    background-color: rgb(39, 49, 49);
+}
+
+.footer-content{
+    padding-left: auto;
+    padding-right: auto;
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+
+.footer-content p{
+    color: rgb(220,215,201);
+    text-align: center;
+    font-size: 24px;
+}

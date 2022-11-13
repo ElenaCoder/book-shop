@@ -6,13 +6,13 @@ let fragmentHeader = document.createDocumentFragment();
 let headerElem = document.createElement("header");
 fragmentHeader.prepend(headerElem);
 
-let divContainer = document.createElement("div");
-divContainer.className = "container";
-headerElem.prepend(divContainer);
+let divContainerHeader = document.createElement("div");
+divContainerHeader.className = "container";
+headerElem.prepend(divContainerHeader);
 
 let divImgWrapperHead = document.createElement("div");
 divImgWrapperHead.className = "head-img-wrapper";
-divContainer.prepend(divImgWrapperHead);
+divContainerHeader.prepend(divImgWrapperHead);
 
 let imgHeader = document.createElement("img");
 // imgHeader.setAttribute('src',"../../assets/images/header-img1_1.png");
@@ -147,5 +147,23 @@ let books = fetch(bookListURL, config) //path to the file with json data
 
 
 /* FOOTER  FRAGMENT*/
+let fragmentFooter = document.createDocumentFragment();
+
+let footerElem = document.createElement("footer");
+fragmentFooter.prepend(footerElem);
+
+let divContainerFooter = document.createElement("div");
+divContainerFooter.className = "container";
+footerElem.prepend(divContainerFooter);
+
+let divFooterContent = document.createElement("div");
+divFooterContent.className ="footer-content";
+divContainerFooter.prepend(divFooterContent);
+
+let pFooter = document.createElement("p");
+pFooter.textContent = "November, 2022";
+divFooterContent.append(pFooter);
+
+mainElem.after(fragmentFooter);
 
 /*// FOOTER  FRAGMENT*/
