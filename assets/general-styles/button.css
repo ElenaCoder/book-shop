@@ -1,7 +1,7 @@
 
 .button,
-a.button {
-
+a.button,
+input.button {
     width: 298px;
     height: 54px;
     background-color: #c1502e;
@@ -31,6 +31,6 @@ a.button:active{
 
 .button:disabled,
 a.button:disabled{
-    background-color:rgb(220,215,201);
+    background-color:rgb(194, 190, 178);
 }
 

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book-shop</title>
+
+    <!--Reset-->
+    <link rel="stylesheet" href="../../assets/general-styles/base.css">
+    <link rel="stylesheet" href="../../assets/general-styles/reset.css">
+
+    <!--Fonts Roboto from https://fonts.google.com/specimen/Roboto-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--Sections-->
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="/assets/general-styles/button.css">
+</head>
+<body>
+    <div class="wrapper">
+
+        <form action="">
+            <h3>Shipping Details</h3>
+            <div class="row-two-items">
+                <div class="col-50">
+                    <label for="firstName">First Name <span id="firstName-error"></span></label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Name" onkeyup="validateFirstName()">
+                </div>
+                <div class="col-50">
+                    <label for="surname">Surname<span id="surname-error"></span></label>
+                    <input type="text" id="surname" name="surname" placeholder="Surname" onkeyup="validateSurname()">
+                </div>
+            </div>
+            <div class="row-one-item">
+                <label for="deliveryDate">Delivery date<span id="deliveryDate-error"></span></label>
+                <input type="date" id="deliveryDate" name="deliveryDate" onkeyup="validateDeliveryDate()">
+            </div>
+
+            <h3>Address</h3>
+            <div class="row-one-item">
+                <label for="street">Street<span id="street-error"></span></label>
+                <input type="text" id="street" name="street" placeholder="Street" onkeyup="validateStreet()">
+            </div>
+            <div class="row-two-items">
+                <div class="col-50">
+                    <label for="houseNumber">House number<span id="houseNumber-error"></span></label>
+                    <input type="text" id="houseNumber" name="houseNumber" placeholder="House number" onkeyup="validateHouseNumber()">
+                </div>
+                <div class="col-50">
+                    <label for="flatNumber">Flat number<span id="flatNumber-error"></span></label>
+                    <input type="text" id="flatNumber" name="flatNumber" placeholder="Flat number" onkeyup="validateFlatNumber()" >
+                </div>
+            </div>
+
+                <h3>Payment Information</h3>
+                <label class="radio-btn-container" for="cardPayment">Cash
+                    <input type="radio" checked="checked" id="cardPayment" name="radio">
+                    <span class="radio-checkmark"></span>
+                </label>
+                <label class="radio-btn-container" for="cashPayment">Card
+                    <input type="radio" name="radio" id="cashPayment" name="radio">
+                    <span class="radio-checkmark"></span>
+                </label>
+
+
+                <h3>Choose 2 gifts (optional):</h3>
+                <label class="gift-container" for="giftFirst">Pack as a gift
+                  <input type="checkbox" id="giftFirst" name="giftFirst">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="gift-container" for="giftSecond">Add postcard
+                  <input type="checkbox" id="giftSecond" name="giftSecond">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="gift-container" for="giftThird">Provide 2% discount to the next time
+                  <input type="checkbox" id="giftThird" name="giftThird">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="gift-container" for="giftForth">Branded pen or pencil
+                  <input type="checkbox" id="giftForth" name="giftForth">
+                  <span class="checkmark"></span>
+                </label>
+
+                <div class="form-button">
+                    <input class="button" type="submit" value="Complete" >
+                </div>
+                <span id="submit-error"> </span>
+        </form>
+    </div>
+    
+<script src="./script.js"></script>
+</body>
+</html>
