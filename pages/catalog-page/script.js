@@ -62,7 +62,7 @@ for(let i=0; i < 10; i++){
     divCard.append(divImgWrapperCard);
 
     const imgCard = document.createElement("img");
-    imgCard.src = "/assets/images/book-cover-1.jpg";
+    imgCard.src = "../../assets/images/book-cover1.jpg";
     imgCard.alt = "Book cover";
     divImgWrapperCard.append(imgCard);
 
@@ -114,7 +114,7 @@ for(let i=0; i < 10; i++){
 
 
 /* FETCHING .JSON WITH BOOKS AND FILLING THE CARD FRAGMENTS WITH THEM*/
-const bookListURL = '/assets/extra-materials/books.json';
+const bookListURL = "../../assets/extra-materials/books.json";
 const config ={
 mode:"no-cors",
 };
