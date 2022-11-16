@@ -26,6 +26,9 @@ form{
     box-shadow: rgb(0 0 0 / 20%) 0px 8px 16px 0px;
     transition: all 0.3s ease 0s;
 }
+
+
+
 #firstName-error,
 #surname-error,
 #deliveryDate-error,
@@ -36,6 +39,10 @@ form{
     font-size: 14px;
     color: red;
     /* display: none; */
+}
+span>i{
+  color:seagreen;
+  padding-left: 10px;
 }
 
 h3{

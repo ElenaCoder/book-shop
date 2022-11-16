@@ -71,123 +71,170 @@ mainElem2.after(fragmentFooter2);
 
 
 /* FORM VALIDATION*/
-document.getElementsByTagName("form")[0].addEventListener("submit", validationForm);
-
-
-let firstNameInput = document.getElementById("firstName").value;
-let surnameInput = document.getElementById("surname").value;
-let deliveryDateInput = document.getElementById("deliveryDate").value;
-let streetInput = document.getElementById("street").value;
-let houseNumberInput = document.getElementById("houseNumber").value;
-let flatNumberInput = document.getElementById("flatNumber").value;
-let submitButton = document.getElementsByClassName("form-button")[0];
 
 let firstNameError = document.getElementById("firstName-error");
-let surnameError = document.getElementById("surname-error");
-let deliveryDateError = document.getElementById("deliveryDate-error");
-let streetError = document.getElementById("street-error");
-let houseNumberError = document.getElementById("houseNumber-error");
-let flatNumberError = document.getElementById("flatNumber-error");
-let submitButtonSpan = document.getElementById("submit-error");
-
-
 
 function validateFirstName(){
+    let firstNameInput = document.getElementById("firstName").value;
 
-    if(firstNameInput.length < 4 ||  //CHANGE THE CONDITION
-             firstNameInput.length === 0 ||
-         !typeof firstNameInput === 'string' ||
-                firstNameInput.match(/^[a-z ,.'-]+$/i)){
-
-        firstNameError.innerHTML = "The field is invalid";
+    if(firstNameInput.length < 4){
+        firstNameError.innerHTML = "&ensp;The field is invalid";
         document.getElementById("firstName").style.borderColor = "red";
         return false;
     }
-
-    firstNameError.innerHTML = "f058";
-    return true;
-}
-
-
-function validateSurname(){
-    if(        surnameInput.length < 5 ||
-              surnameInput.length === 0 ||
-      !typeof surnameInput === 'string' ){//CHANGE THE CONDITION
-
-    surnameError.innerHTML = "The field is invalid";
-    document.getElementById("surname").style.borderColor = "red";
-    return false;
+    if(firstNameInput.length == 0){
+            firstNameError.innerHTML = "&ensp;The field is invalid";
+            document.getElementById("firstName").style.borderColor = "red";
+            return false;
+    }
+    if(!firstNameInput.match(/^[A-Za-z]+$/i)){
+            firstNameError.innerHTML = "&ensp;Only letters allowed";
+            document.getElementById("firstName").style.borderColor = "red";
+            return false;
     }
 
-    surnameError.innerHTML = "f058";
+    firstNameError.innerHTML = '<i class="fa fa-check-circle" style="font-size:24px"></i>';
+    document.getElementById("firstName").style.borderColor = "#ccc";
     return true;
 }
 
 
+let surnameError = document.getElementById("surname-error");
+
+function validateSurname(){
+    let surnameInput = document.getElementById("surname").value;
+
+    if(surnameInput.length < 5){
+        surnameError.innerHTML = "&ensp; The field is invalid";
+        document.getElementById("surname").style.borderColor = "red";
+        return false;
+    }
+    if(surnameInput.length == 0){
+            surnameError.innerHTML = "&ensp; The field is invalid";
+            document.getElementById("surname").style.borderColor = "red";
+            return false;
+    }
+    if(!surnameInput.match(/^[A-Za-z]+$/i)){
+            surnameError.innerHTML = "&ensp; Only letters allowed";
+            document.getElementById("surname").style.borderColor = "red";
+            return false;
+    }
+
+    surnameError.innerHTML = '<i class="fa fa-check-circle" style="font-size:24px"></i>';
+    document.getElementById("surname").style.borderColor = "#ccc";
+     return true;
+}
+
+
+let deliveryDateError = document.getElementById("deliveryDate-error");
+
 function validateDeliveryDate(){
-    if(deliveryDateInput >-1 ){ //CHANGE THE CONDITION
-        deliveryDateError.innerHTML = "The field is invalid";
+    // Calculate milliseconds in a day
+    const minute = 1000 * 60;
+    const hour = minute * 60;
+    const day = hour * 24;  //86400000 ms
+
+    let deliveryDateInput = document.getElementById("deliveryDate").value;
+
+    let currentDate = new Date();
+    let currentDateMS = currentDate.getTime();
+    let deliveryDate = new Date(deliveryDateInput);
+    let deliveryDateMS = deliveryDate.getTime();
+
+
+    if((deliveryDateMS-currentDateMS) < day){
+        deliveryDateError.innerHTML = "&ensp; The field is invalid";
+        document.getElementById("deliveryDate").style.borderColor = "red";
+        return false;
+    }
+    if(isNaN(deliveryDateMS)){
+        deliveryDateError.innerHTML = "&ensp; The field is empty";
         document.getElementById("deliveryDate").style.borderColor = "red";
         return false;
     }
 
-    deliveryDateError.innerHTML = "f058";
-    return true;
+    deliveryDateError.innerHTML = '<i class="fa fa-check-circle" style="font-size:24px"></i>';
+    document.getElementById("deliveryDate").style.borderColor = "#ccc";
+     return true;
 }
 
+let streetError = document.getElementById("street-error");
 
 function validateStreet(){
-    if(streetInput.length <5 || streetInput.length === 0 ||
-        !streetInput.match(/^\w+$/i)){//CHANGE THE CONDITION
+    let streetInput = document.getElementById("street").value;
 
-        streetError.innerHTML = "The field is invalid";
+    if(streetInput.length < 5){
+        streetError.innerHTML = "&ensp; The field is invalid";
         document.getElementById("street").style.borderColor = "red";
         return false;
     }
 
-    streetError.innerHTML = "f058";
+    if(streetInput.length === 0){
+        streetError.innerHTML = "&ensp; The field is invalid";
+        document.getElementById("street").style.borderColor = "red";
+        return false;
+    }
+
+    if(!streetInput.match(/^[A-Za-z0-9 ]+$/i)){
+        streetError.innerHTML = "&ensp; Only letters required";
+        document.getElementById("street").style.borderColor = "red";
+        return false;
+    }
+
+    streetError.innerHTML = '<i class="fa fa-check-circle" style="font-size:24px"></i>';
+    document.getElementById("street").style.borderColor = "#ccc";
     return true;
 }
 
+let houseNumberError = document.getElementById("houseNumber-error");
+
 
 function validateHouseNumber(){
-    if(!houseNumberInput.match(/^[1-9]+[0-9]*/gm)){//CHANGE THE CONDITION
-        houseNumberError.innerHTML = "The field is invalid";
+    let houseNumberInput = document.getElementById("houseNumber").value;
+
+    if(!houseNumberInput.match(/^[+]?[0]*[1-9]+[0-9]*$/gm)){
+        houseNumberError.innerHTML = "&ensp; The field is invalid";
         document.getElementById("houseNumber").style.borderColor = "red";
         return false;
     }
 
-    houseNumberError.innerHTML = "f058";
+    houseNumberError.innerHTML = '<i class="fa fa-check-circle" style="font-size:24px"></i>';
+    document.getElementById("houseNumber").style.borderColor = "#ccc";
     return true;
 }
 
 
+let flatNumberError = document.getElementById("flatNumber-error");
+
 function validateFlatNumber(){
-    if(!flatNumberInput.match(/^[1-9]+[0-9]*/gm)){//CHANGE THE CONDITION
-        flatNumberError.innerHTML = "The field is invalid";
+    let flatNumberInput = document.getElementById("flatNumber").value;
+
+    if(!flatNumberInput.match(/^[1-9]+[-][1-9]+[0-9]*$|^[0]*[1-9]+[0-9]*$|^[+]?[1-9]*[1-9]+[0-9]*$/gm)){//CHANGE THE CONDITION
+        flatNumberError.innerHTML = "&ensp; The field is invalid";
+        document.getElementById("flatNumber").style.borderColor = "red";
+        return false;
+    }
+    if(flatNumberInput < 0){
+        flatNumberError.innerHTML = "&ensp; The field is invalid";
         document.getElementById("flatNumber").style.borderColor = "red";
         return false;
     }
 
-    flatNumberError.innerHTML = "f058";
+    flatNumberError.innerHTML = '<i class="fa fa-check-circle" style="font-size:24px"></i>';
+    document.getElementById("flatNumber").style.borderColor = "#ccc";
     return true;
 }
 
 
-function validationForm(){
+let submitButtonElem = document.querySelector(".form-button .button");
+let fields = document.querySelectorAll('form input[type="text"], form input[type="date"]');
 
-    if(!validateFirstName() &&
-        !validateSurname() &&
-        !validateDeliveryDate() &&
-        !validateStreet() &&
-        !validateHouseNumber() &&
-        !validateFlatNumber()){
-        submitButtonSpan.innerHTML = "All field must be filled out";
-        return false;
-    }
+fields = Array.from(fields); //Turn fields into an Array to apply validation methods.
 
-    return true;
-
-}
+fields.forEach(field => {
+     field.addEventListener('input', () => {
+         submitButtonElem.disabled = !(validateFirstName() & validateSurname() &  validateDeliveryDate() & validateStreet() & validateHouseNumber() & validateFlatNumber())
+     })
+})
 
 /*// FORM VALIDATION*/
