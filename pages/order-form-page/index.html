@@ -18,11 +18,14 @@
       rel="stylesheet"
     />
 
+    <!--Link to Font Awesome icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!--Sections-->
-    <link rel="stylesheet" href="./styles/header.css">
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="stylesheet" href="./styles/footer.css">
-    <link rel="stylesheet" href="/assets/general-styles/button.css">
+    <link rel="stylesheet" href="../../pages/order-form-page/styles/header.css">
+    <link rel="stylesheet" href="../../pages/order-form-page/styles/main.css">
+    <link rel="stylesheet" href="../../pages/order-form-page/styles/footer.css">
+    <link rel="stylesheet" href="../../assets/general-styles/button.css">
 </head>
 <body>
     <div class="wrapper">
@@ -32,31 +35,31 @@
             <div class="row-two-items">
                 <div class="col-50">
                     <label for="firstName">First Name <span id="firstName-error"></span></label>
-                    <input type="text" id="firstName" name="firstName" placeholder="Name" onkeyup="validateFirstName()">
+                    <input type="text" id="firstName" name="firstName" placeholder="Name">
                 </div>
                 <div class="col-50">
                     <label for="surname">Surname<span id="surname-error"></span></label>
-                    <input type="text" id="surname" name="surname" placeholder="Surname" onkeyup="validateSurname()">
+                    <input type="text" id="surname" name="surname" placeholder="Surname">
                 </div>
             </div>
             <div class="row-one-item">
                 <label for="deliveryDate">Delivery date<span id="deliveryDate-error"></span></label>
-                <input type="date" id="deliveryDate" name="deliveryDate" onkeyup="validateDeliveryDate()">
+                <input type="date" id="deliveryDate" name="deliveryDate">
             </div>
 
             <h3>Address</h3>
             <div class="row-one-item">
                 <label for="street">Street<span id="street-error"></span></label>
-                <input type="text" id="street" name="street" placeholder="Street" onkeyup="validateStreet()">
+                <input type="text" id="street" name="street" placeholder="Street" >
             </div>
             <div class="row-two-items">
                 <div class="col-50">
                     <label for="houseNumber">House number<span id="houseNumber-error"></span></label>
-                    <input type="text" id="houseNumber" name="houseNumber" placeholder="House number" onkeyup="validateHouseNumber()">
+                    <input type="text" id="houseNumber" name="houseNumber" placeholder="House number">
                 </div>
                 <div class="col-50">
                     <label for="flatNumber">Flat number<span id="flatNumber-error"></span></label>
-                    <input type="text" id="flatNumber" name="flatNumber" placeholder="Flat number" onkeyup="validateFlatNumber()" >
+                    <input type="text" id="flatNumber" name="flatNumber" placeholder="Flat number">
                 </div>
             </div>
 
@@ -90,9 +93,8 @@
                 </label>
 
                 <div class="form-button">
-                    <input class="button" type="submit" value="Complete" >
+                    <input class="button" type="submit" value="Complete" disabled>
                 </div>
-                <span id="submit-error"> </span>
         </form>
     </div>
     
