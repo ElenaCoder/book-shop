@@ -71,14 +71,18 @@ for(let i=0; i < 10; i++){
     divCardContentContainer.className = "card-content-container";
     divCard.append(divCardContentContainer);
 
+    const divCardHeaderContainer = document.createElement("div");
+    divCardHeaderContainer.className = "card-header-container";
+    divCardContentContainer.append(divCardHeaderContainer);
+
     const pAuthor = document.createElement("p");
     pAuthor.className ="author";
-    divCardContentContainer.append(pAuthor);
+    divCardHeaderContainer.append(pAuthor);
 
     const cardCloseButton = document.createElement("button");
     cardCloseButton.className = "card-close-button";
     cardCloseButton.innerHTML = "&times;";
-    divCardContentContainer.append(cardCloseButton);
+    divCardHeaderContainer.append(cardCloseButton);
 
     const divTitle = document.createElement("div");
     divTitle.className ="title";

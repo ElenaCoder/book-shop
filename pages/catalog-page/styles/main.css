@@ -59,6 +59,11 @@ text-shadow: 2px 2px 8px rgb(168, 183, 184);
     width: 60%;
 }
 
+.card-header-container{
+    display: flex;
+    justify-content: space-between;
+}
+
 .author{
     font-weight: 400;
     font-size: 24px;
@@ -68,16 +73,13 @@ text-shadow: 2px 2px 8px rgb(168, 183, 184);
 
 .card-close-button{
     display: none;
-    position: relative;
-    bottom: 60px;
-    left: 600px;
 
     cursor: pointer;
     border: none;
     outline: none;
     background: none;
     font-size: 1.6rem;
-    line-height: 1.8rem;
+    line-height: 1.6rem;
     font-weight: 600;
     width: 30px;
     height: 30px;
@@ -87,7 +89,7 @@ text-shadow: 2px 2px 8px rgb(168, 183, 184);
     border-radius:50%
 }
 
-/* .card-close-button:hover{
+.card-close-button:hover{
     background-color:rgb(162,123,92);
     transition: 0.1s s ease-in-out;
 }
@@ -95,7 +97,7 @@ text-shadow: 2px 2px 8px rgb(168, 183, 184);
 .card-close-button:active{
     background-color:rgb(63,78,79);
     transition: 0.1s ease-in-out;
-}*/
+}
 
 
 .title{
