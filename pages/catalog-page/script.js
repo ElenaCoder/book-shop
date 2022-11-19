@@ -27,7 +27,7 @@ divWrapper.appendChild(fragmentHeader);
 /* //HEADER FRAGMENT*/
 
 
-/* FRAGMENT WITH MAIN and H1 */
+/* FRAGMENT WITH MAIN , H1  and WRAPPER for cards*/
 let fragmentMain = document.createDocumentFragment();
 
     const mainElem = document.createElement("main");
@@ -37,12 +37,30 @@ let fragmentMain = document.createDocumentFragment();
     divContainerMain.className = "container";
     mainElem.prepend(divContainerMain);
 
+
+
+    const divMainHeaderWrapper = document.createElement("div");
+    divMainHeaderWrapper.className = "main-header-wrapper";
+    divContainerMain.append(divMainHeaderWrapper);
+
+
     const h1Elem = document.createElement("h1");
     h1Elem.innerText = "Book Catalog";
-    divContainerMain.append(h1Elem);
+    divMainHeaderWrapper.append(h1Elem);
+
+    const divBagButtonContainer = document.createElement("button");
+    divBagButtonContainer.className = "bag-button-container";
+    divBagButtonContainer.innerHTML = 'My bag <i class="fa fa-shopping-basket"></i>';
+    divMainHeaderWrapper.append(divBagButtonContainer);
+
+
+    let divCardsWrapper = document.createElement("div");
+    divCardsWrapper.className = "cards-wrapper";
+    divContainerMain.append(divCardsWrapper);
+
 
     headerElem.after(fragmentMain);
-/* // FRAGMENT WITH MAIN and H1 */
+/* FRAGMENT WITH MAIN , H1  and WRAPPER for cards*/
 
 
 /* ARRAY WITH CARD FRAGMENTS */
@@ -156,6 +174,8 @@ for(let i=0; i < 10; i++){
 /* // ARRAY WITH CARD FRAGMENTS */
 
 
+
+
 /* FETCHING .JSON WITH BOOKS AND FILLING THE CARD FRAGMENTS WITH THEM*/
 const bookListURL = "../../assets/extra-materials/books.json";
 const config ={
@@ -184,10 +204,11 @@ let books = fetch(bookListURL, config) //path to the file with json data
 
             })
 
-            console.log("fragmentCardArr", fragmentCardArr[0].querySelector(".author").innerHTML);
+            // console.log("fragmentCardArr", fragmentCardArr[0].querySelector(".author").innerHTML);
+            // console.log("fragmentCardArr", fragmentCardArr[0]);
 
 
-            fragmentCardArr.forEach((elem, index) => h1Elem.after(elem));
+            fragmentCardArr.forEach((elem, index) => divCardsWrapper.append(elem.cloneNode(true)));
 
 
              /* JS for Module Window */
@@ -233,10 +254,8 @@ let books = fetch(bookListURL, config) //path to the file with json data
 
              /* //JS for Module Window */
 
-
-
-
         });
+console.log("fragmentCardArr_after", fragmentCardArr[0].querySelector(".author").innerHTML);
 
 
 /* // FETCHING .JSON WITH BOOKS AND FILLING THE CARD FRAGMENTS WITH THEM*/
