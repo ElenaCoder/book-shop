@@ -2,8 +2,8 @@
 .button,
 a.button,
 input.button {
-    width: 298px;
-    height: 54px;
+    width: 250px;
+    height: 44px;
     background-color: #c1502e;
     color: #FFFFFF;;
     font-weight: 500;
@@ -11,7 +11,7 @@ input.button {
     line-height: 22px;
     text-align: center;
     border-radius: 7px;
-    padding: 16px 0;
+    padding: 12px 0;
     text-transform: uppercase;
 }
 
