@@ -27,7 +27,7 @@ divWrapper.appendChild(fragmentHeader);
 /* //HEADER FRAGMENT*/
 
 
-/* FRAGMENT WITH MAIN , H1  and WRAPPER for cards*/
+/* FRAGMENT WITH MAIN , H1  and WRAPPER for BABY CARDS*/
 let fragmentMain = document.createDocumentFragment();
 
     const mainElem = document.createElement("main");
@@ -48,10 +48,36 @@ let fragmentMain = document.createDocumentFragment();
     h1Elem.innerText = "Book Catalog";
     divMainHeaderWrapper.append(h1Elem);
 
-    const divBagButtonContainer = document.createElement("button");
-    divBagButtonContainer.className = "bag-button-container";
-    divBagButtonContainer.innerHTML = 'My bag <i class="fa fa-shopping-basket"></i>';
-    divMainHeaderWrapper.append(divBagButtonContainer);
+    const divDropdown = document.createElement("div");
+    divDropdown.className = "dropdown";
+    divMainHeaderWrapper.append(divDropdown);
+
+    const buttonBagButtonContainer = document.createElement("button");
+    buttonBagButtonContainer.className = "bag-button-container";
+    buttonBagButtonContainer.innerHTML = 'My bag <i class="fa fa-shopping-basket"></i>';
+    divDropdown.append(buttonBagButtonContainer);
+
+    const divDropdownContent = document.createElement("div");
+    divDropdownContent.className = "dropdown-content";
+    divDropdown.append(divDropdownContent);
+
+    const divBabyCardHeader = document.createElement("div");
+    divBabyCardHeader.className = "bag-card-header";
+    divDropdownContent.append(divBabyCardHeader);
+
+    const pTotalSum = document.createElement("p");
+    pTotalSum.innerHTML = "Total: $&#9;";
+    divBabyCardHeader.append(pTotalSum);
+
+    const spanTotalSum = document.createElement("span");
+    spanTotalSum.className = "total-sum";
+    spanTotalSum.innerHTML = 0;
+    pTotalSum.append(spanTotalSum);
+
+    const buttonConfirmButton = document.createElement("button");
+    buttonConfirmButton.className = "bag-confirm-button";
+    buttonConfirmButton.innerHTML = 'Confirm order';
+    divBabyCardHeader.append(buttonConfirmButton);
 
 
     let divCardsWrapper = document.createElement("div");
@@ -60,7 +86,7 @@ let fragmentMain = document.createDocumentFragment();
 
 
     headerElem.after(fragmentMain);
-/* FRAGMENT WITH MAIN , H1  and WRAPPER for cards*/
+/* // FRAGMENT WITH MAIN , H1  and WRAPPER for BABY CARDS*/
 
 
 /* ARRAY WITH CARD FRAGMENTS */
@@ -113,7 +139,6 @@ for(let i=0; i < 10; i++){
 
     const aShowMore = document.createElement("a");
     aShowMore.className = "show-more";
-    // aShowMore.href = "#modal-8";
     aShowMore.href = `#modal-${i}`;
     aShowMore.textContent = "Show more...";
     aShowMore.setAttribute("data-modal-target",".modal");
@@ -147,12 +172,7 @@ for(let i=0; i < 10; i++){
     const divModalOverlay = document.createElement("div");
     divModalOverlay.className = "overlay";
     divModal.after(divModalOverlay);
-
     /*// -------Modal wondow ------------*/
-
-    // const divDescription = document.createElement("div");
-    // divDescription.className = "description";
-    // divCardContentContainer.append(divDescription);
 
     const divCardButton = document.createElement("div");
     divCardButton.className = "card-button";
@@ -170,9 +190,52 @@ for(let i=0; i < 10; i++){
     // console.log(currentFragment);
     fragmentCardArr.push(currentFragment);
 }
-
 /* // ARRAY WITH CARD FRAGMENTS */
 
+/* BABY CARD FRAGMENT */
+const babyCardFragment = document.createDocumentFragment();
+
+let divBabyCardWrapper = document.createElement("div");
+divBabyCardWrapper.className = "baby-card-wrapper";
+babyCardFragment.append(divBabyCardWrapper);
+
+let divCardImgWrapper = document.createElement("div");
+divCardImgWrapper.className = "baby-card-img-wrapper";
+divBabyCardWrapper.append(divCardImgWrapper);
+
+let divBabyCardImg = document.createElement("img");
+divBabyCardImg.src = "#";
+divBabyCardImg.alt = "Book cover image";
+divCardImgWrapper.append(divBabyCardImg);
+
+let divDescriptionWrapper = document.createElement("div");
+divDescriptionWrapper.className = "description-wrapper";
+divBabyCardWrapper.append(divDescriptionWrapper);
+
+let pAuthor = document.createElement("p");
+divDescriptionWrapper.append(pAuthor);
+
+let pTitle = document.createElement("p");
+divDescriptionWrapper.append(pTitle);
+
+let pPrice = document.createElement("p");
+divBabyCardWrapper.append(pPrice);
+
+let buttonBabyCloseButton = document.createElement("button");
+buttonBabyCloseButton.className = "baby-close-button";
+buttonBabyCloseButton.innerHTML = "&times;";
+divBabyCardWrapper.append(buttonBabyCloseButton);
+
+/* // BABY CARD FRAGMENT*/
+
+
+/* ARRAY FOR STORING BABY CARDS IN BAG*/
+fragmentBagCardArr = [];
+/* // ARRAY FOR STORING BABY CARDS IN BAG*/
+
+
+/*ARRAY WITH FILLED BABY CARD FRAGMENTs */
+/*//ARRAY WITH FILLED BABY CARD FRAGMENTs */
 
 
 

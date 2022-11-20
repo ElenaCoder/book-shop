@@ -32,10 +32,29 @@ font-weight: 600;
 text-shadow: 2px 2px 8px rgb(168, 183, 184);
 }
 
-.bag-button-container{
+/*----*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown:hover .dropdown-content {
+    /* display: block; */
+    opacity: 1;
+    transition: all 0.2s ease-in-out 0.1s;
+  }
+
+  .dropdown:hover .bag-button-container {
+    background-color: rgb(96, 118, 119);
+    /* background-color: rgb(162, 123, 92); */
+
+  }
+
+  .bag-button-container{
     display: flex;
-justify-content: center;
-    width: 250px;
+    justify-content: center;
+    /* width: 250px; */
+    min-width: 400px;
     height: 44px;
     background-color: rgb(63,78,79);
     color: #FFFFFF;;
@@ -46,11 +65,176 @@ justify-content: center;
     border-radius: 3px;
     padding: 12px 0;
     text-transform: uppercase;
+    cursor: pointer;
+    border: none;
 }
 
 .bag-button-container i{
     margin-left: 20px;
 }
+
+.bag-button-container:disabled{
+    background-color:rgb(194, 190, 178);
+}
+
+
+
+
+  .dropdown-content {
+      /* display: none; */
+      opacity: 0;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 400px;
+      min-height: 130px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+  }
+
+
+
+  .bag-card-header{
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      margin: 0;
+      border-bottom: 2px solid rgb(170, 167, 167);
+  }
+
+  .bag-card-header p{
+      margin: 0;;
+      margin-left: 20px;
+      font-weight: 600;
+      font-size: 1.2em;
+
+
+  }
+
+  .bag-card-header .bag-confirm-button {
+      width: 180px;
+      height: 35px;
+      background-color: rgb(193, 80, 46);
+      color: rgb(255, 255, 255);
+      font-weight: 500;
+      font-size: 0.8em;
+      line-height: 1em;
+      text-align: center;
+      text-transform: uppercase;
+      border-radius: 7px;
+      padding: 10px 0px;
+      margin-right: 10px;
+  }
+
+  .bag-confirm-button:hover{
+      background-color: rgb(162, 123, 92);
+      transition: all 0.1s ease-in-out 0s;
+  }
+
+  .bag-confirm-button:active{
+    background-color: rgb(63, 78, 79);
+      transition: all 0.1s ease-in-out 0s;
+  }
+
+
+
+  .dropdown-content .baby-card-wrapper {
+    color: black;
+    padding: 12px 16px;
+  }
+
+  .dropdown-content .baby-card-wrapper:hover {
+    background-color: #f1f1f1;
+    transition: all 0.1s ease-in-out 0s;
+  }
+
+
+  /*BABY CARD*/
+
+  .baby-card-wrapper{
+        display:flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+  }
+
+  .baby-card-img-wrapper{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 70px;
+      overflow: hidden;
+      padding: 10px;
+  }
+
+  .baby-card-img-wrapper img{
+      min-width: 100%;
+      min-height: 100%;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px 0px;
+  }
+
+  .description-wrapper {
+    width: 50%;
+    padding: 10px;
+    /* border: 1px solid black; */
+  }
+
+  .description-wrapper p{
+    /* border: 1px solid black; */
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 0.8em;
+  }
+
+  .description-wrapper p:last-child{
+    /* border: 1px solid black; */
+    margin: 0;
+    /* margin-bottom: 5px; */
+    font-size: 0.8em;
+    font-weight: 600;
+  }
+
+  .baby-card-wrapper>p{
+      color:rgb(126, 96, 72);
+      font-weight: 600;
+      text-shadow: rgb(168, 183, 184) 2px 2px 8px;
+  }
+
+
+  .baby-close-button{
+      cursor: pointer;
+      font-size: 1.6rem;
+      line-height: 1.6rem;
+      font-weight: 600;
+      width: 30px;
+      height: 30px;
+      color: rgb(255, 255, 255);
+      text-align: center;
+      border-width: initial;
+      border-style: none;
+      border-color: initial;
+      border-image: initial;
+      outline: none;
+      background: none rgb(193, 80, 46);
+      border-radius: 50%;
+      margin-left: 10px;
+      margin-right: 10px;
+  }
+
+  .baby-close-button:hover{
+    background-color: rgb(162, 123, 92);
+    transition: s 0.1s ease-in-out 0s;
+  }
+
+  .baby-close-button:active{
+    background-color: rgb(63, 78, 79);
+    transition: all 0.1s ease-in-out 0s;
+  }
+
+  /*//BABY CARD*/
+/*---*/
+
+
 
 
 .card{
