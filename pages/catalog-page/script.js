@@ -192,54 +192,58 @@ for(let i=0; i < 10; i++){
 }
 /* // ARRAY WITH CARD FRAGMENTS */
 
-/* BABY CARD FRAGMENT */
-const babyCardFragment = document.createDocumentFragment();
 
-let divBabyCardWrapper = document.createElement("div");
-divBabyCardWrapper.className = "baby-card-wrapper";
-babyCardFragment.append(divBabyCardWrapper);
-
-let divCardImgWrapper = document.createElement("div");
-divCardImgWrapper.className = "baby-card-img-wrapper";
-divBabyCardWrapper.append(divCardImgWrapper);
-
-let divBabyCardImg = document.createElement("img");
-divBabyCardImg.src = "#";
-divBabyCardImg.alt = "Book cover image";
-divCardImgWrapper.append(divBabyCardImg);
-
-let divDescriptionWrapper = document.createElement("div");
-divDescriptionWrapper.className = "description-wrapper";
-divBabyCardWrapper.append(divDescriptionWrapper);
-
-let pAuthor = document.createElement("p");
-divDescriptionWrapper.append(pAuthor);
-
-let pTitle = document.createElement("p");
-divDescriptionWrapper.append(pTitle);
-
-let pPrice = document.createElement("p");
-divBabyCardWrapper.append(pPrice);
-
-let buttonBabyCloseButton = document.createElement("button");
-buttonBabyCloseButton.className = "baby-close-button";
-buttonBabyCloseButton.innerHTML = "&times;";
-divBabyCardWrapper.append(buttonBabyCloseButton);
-
-/* // BABY CARD FRAGMENT*/
-
-
-/* ARRAY FOR STORING BABY CARDS IN BAG*/
-fragmentBagCardArr = [];
-/* // ARRAY FOR STORING BABY CARDS IN BAG*/
+/* ARRAY FOR STORING FILLED BABY CARDS FROM CARD FRAGMENTS*/
+let totalSum = 0;
+const bagCardsArr = [];
+/* // ARRAY FOR STORING FILLED BABY CARDS FROM CARD FRAGMENTS*/
 
 
 /*ARRAY WITH FILLED BABY CARD FRAGMENTs */
+const fragmentBabyCardsArr = [];
+
+for (let i=0; i < fragmentCardArr.length; i++){
+    const currentBabyCardFragment = document.createDocumentFragment();
+
+    let divBabyCardWrapper = document.createElement("div");
+    divBabyCardWrapper.className = "baby-card-wrapper";
+    divBabyCardWrapper.id = `baby-card-${i}`;
+    currentBabyCardFragment.append(divBabyCardWrapper);
+
+    let divCardImgWrapper = document.createElement("div");
+    divCardImgWrapper.className = "baby-card-img-wrapper";
+    divBabyCardWrapper.append(divCardImgWrapper);
+
+    let divBabyCardImg = document.createElement("img");
+    divBabyCardImg.alt = "Book cover image";
+    divCardImgWrapper.append(divBabyCardImg);
+
+    let divDescriptionWrapper = document.createElement("div");
+    divDescriptionWrapper.className = "description-wrapper";
+    divBabyCardWrapper.append(divDescriptionWrapper);
+
+    let pAuthor = document.createElement("p");
+    divDescriptionWrapper.append(pAuthor);
+
+    let pTitle = document.createElement("p");
+    divDescriptionWrapper.append(pTitle);
+
+    let pPrice = document.createElement("p");
+    let priceFromCard = fragmentCardArr[i].querySelector(".card-content-container .price").innerHTML;
+    divBabyCardWrapper.append(pPrice);
+
+    let buttonBabyCloseButton = document.createElement("button");
+    buttonBabyCloseButton.className = "baby-close-button";
+    buttonBabyCloseButton.innerHTML = "&times;";
+    divBabyCardWrapper.append(buttonBabyCloseButton);
+
+    fragmentBabyCardsArr.push(currentBabyCardFragment);
+}
 /*//ARRAY WITH FILLED BABY CARD FRAGMENTs */
 
 
 
-/* FETCHING .JSON WITH BOOKS AND FILLING THE CARD FRAGMENTS WITH THEM*/
+/* FETCHING .JSON WITH BOOKS AND FILLING THE CARDS and BABY CARD's FRAGMENTS WITH THEM*/
 const bookListURL = "../../assets/extra-materials/books.json";
 const config ={
 mode:"no-cors",
@@ -254,6 +258,7 @@ let books = fetch(bookListURL, config) //path to the file with json data
             let books = data;
 
             books.map(function(book, index){
+                // Filling Cards from Json
                 fragmentCardArr[index].querySelector(".img-wrapper img").src = book.imageLink;
                 fragmentCardArr[index].querySelector(".author").innerHTML = book.author;
                 fragmentCardArr[index].querySelector(".title").innerHTML  = book.title;
@@ -263,7 +268,11 @@ let books = fetch(bookListURL, config) //path to the file with json data
                 fragmentCardArr[index].querySelector(".modal-body").innerHTML  = book.description;
                 // fragmentCardArr[index].querySelector(".description").innerHTML  = book.description;
 
-
+                // Filling BabyCards from Json
+                fragmentBabyCardsArr[index].querySelector(".baby-card-img-wrapper img").src = book.imageLink;
+                fragmentBabyCardsArr[index].querySelector(".description-wrapper > p").innerHTML = book.author;
+                fragmentBabyCardsArr[index].querySelector(".description-wrapper p:last-child").innerHTML = book.title;
+                fragmentBabyCardsArr[index].querySelector(".baby-card-wrapper > p").innerHTML += book.price;
 
             })
 
@@ -272,6 +281,7 @@ let books = fetch(bookListURL, config) //path to the file with json data
 
 
             fragmentCardArr.forEach((elem, index) => divCardsWrapper.append(elem.cloneNode(true)));
+            // divDropdownContent.append(fragmentBabyCardsArr[0]);
 
 
              /* JS for Module Window */
@@ -305,7 +315,6 @@ let books = fetch(bookListURL, config) //path to the file with json data
                  modal.classList.add("active");
                  overlay.classList.add("active");
 
-
              }
 
              function closeModal(modal) {
@@ -313,15 +322,38 @@ let books = fetch(bookListURL, config) //path to the file with json data
                  modal.classList.remove("active");
                  overlay.classList.remove("active");
              }
-
-
              /* //JS for Module Window */
 
+            /*HANDLING ADDING and REMOVING TO THE BAG*/
+
+            let buttonsCard = [... document.getElementsByClassName("card-button")];
+            buttonsCard.forEach((btn,index) => {
+                btn.addEventListener("click", () =>{addToBagHandler(index)})
+            })
+
+            function addToBagHandler(index) {
+                divDropdownContent.append(fragmentBabyCardsArr[index].cloneNode(true));
+                totalSum += +fragmentBabyCardsArr[index].querySelector(".baby-card-wrapper > p").innerHTML;
+                document.querySelector("p > span.total-sum").innerHTML = totalSum;
+
+                let buttonsBabyCard  = [... divDropdownContent.getElementsByClassName("baby-close-button")];
+                buttonsBabyCard.forEach(btn => btn.addEventListener("click", removeFromBagHandler));
+            }
+
+            function removeFromBagHandler(event) {
+                let currentBabyButton = event.target;
+                let babyCardWrapper = currentBabyButton.parentElement;
+                totalSum -= +babyCardWrapper.querySelector(".baby-card-wrapper > p").innerHTML;
+                document.querySelector("p > span.total-sum").innerHTML = totalSum;
+
+                babyCardWrapper.remove();
+            }
+            /* // HANDLING ADDING and REMOVING TO THE BAG*/
         });
 console.log("fragmentCardArr_after", fragmentCardArr[0].querySelector(".author").innerHTML);
 
 
-/* // FETCHING .JSON WITH BOOKS AND FILLING THE CARD FRAGMENTS WITH THEM*/
+/* // FETCHING .JSON WITH BOOKS AND FILLING THE CARDS and BABY CARD's FRAGMENTS WITH THEM*/
 
 
 /* FOOTER  FRAGMENT*/
