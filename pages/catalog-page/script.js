@@ -192,11 +192,12 @@ for(let i=0; i < 10; i++){
 }
 /* // ARRAY WITH CARD FRAGMENTS */
 
+// const bagCardsArr = []; //ARRAY FOR STORING FILLED BABY CARDS FROM CARD FRAGMENTS
 
-/* ARRAY FOR STORING FILLED BABY CARDS FROM CARD FRAGMENTS*/
+
+/* Global variable for storing total sum in Bag*/
 let totalSum = 0;
-const bagCardsArr = [];
-/* // ARRAY FOR STORING FILLED BABY CARDS FROM CARD FRAGMENTS*/
+/* // Global variable for storing total sum in Bag*/
 
 
 /*ARRAY WITH FILLED BABY CARD FRAGMENTs */
