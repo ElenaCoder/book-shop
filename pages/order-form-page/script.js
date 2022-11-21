@@ -232,7 +232,7 @@ let fields = document.querySelectorAll('form input[type="text"], form input[type
 fields = Array.from(fields); //Turn fields into an Array to apply validation methods.
 
 fields.forEach(field => {
-     field.addEventListener('input', () => {
+     field.addEventListener('blur', () => {
          submitButtonElem.disabled = !(validateFirstName() & validateSurname() &  validateDeliveryDate() & validateStreet() & validateHouseNumber() & validateFlatNumber())
      })
 })
