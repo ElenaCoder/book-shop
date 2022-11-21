@@ -349,6 +349,21 @@ let books = fetch(bookListURL, config) //path to the file with json data
                 babyCardWrapper.remove();
             }
             /* // HANDLING ADDING and REMOVING TO THE BAG*/
+
+            /*REDIRECTION TO ORDER FORM PAGE */
+            let bagConfirmButton = document.getElementsByClassName("bag-confirm-button")[0];
+            bagConfirmButton.addEventListener("click", confirmOrderHandler);
+
+            function confirmOrderHandler(event){
+                let parentbagConfirmButton = event.target.parentElement;
+                let dropdownContentParent = parentbagConfirmButton.parentElement;
+                if([... dropdownContentParent.children].length >= 2){
+                    window.location.href = "../order-form-page/index.html";
+                } else {
+                    alert("Please select at least one book to order");
+                }
+            }
+            /*//REDIRECTION TO ORDER FORM PAGE */
         });
 console.log("fragmentCardArr_after", fragmentCardArr[0].querySelector(".author").innerHTML);
 
