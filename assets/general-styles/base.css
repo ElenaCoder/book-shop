@@ -30,7 +30,8 @@ but it will be hidden from our eyes */
 .wrapper{
     margin-left: auto;
     margin-right: auto;
-    min-width: 1500px;
+    /* max-width: 1500px; */
+    min-width: 1300px;
     /* border: 2px dashed red; */
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -38,7 +39,7 @@ but it will be hidden from our eyes */
 }
 
 .container {
-	width: 1500px;
+	max-width: 1300px;
 	padding-left: 15px;
 	padding-right: 15px;
 	margin-left: auto;
