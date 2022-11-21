@@ -333,6 +333,7 @@ let books = fetch(bookListURL, config) //path to the file with json data
             })
 
             function addToBagHandler(index) {
+                event.preventDefault();
                 divDropdownContent.append(fragmentBabyCardsArr[index].cloneNode(true));
                 totalSum += +fragmentBabyCardsArr[index].querySelector(".baby-card-wrapper > p").innerHTML;
                 document.querySelector("p > span.total-sum").innerHTML = totalSum;
@@ -342,6 +343,7 @@ let books = fetch(bookListURL, config) //path to the file with json data
             }
 
             function removeFromBagHandler(event) {
+                event.preventDefault();
                 let currentBabyButton = event.target;
                 let babyCardWrapper = currentBabyButton.parentElement;
                 totalSum -= +babyCardWrapper.querySelector(".baby-card-wrapper > p").innerHTML;
