@@ -238,3 +238,66 @@ fields.forEach(field => {
 })
 
 /*// FORM VALIDATION*/
+
+/* NOTIFICATION ABOUT CREATED ORDER */
+submitButtonElem.addEventListener("click", orderCompletionHandler);
+
+    function orderCompletionHandler(event){
+        event.preventDefault();
+        const fragmentOrderMessage = document.createDocumentFragment();
+
+        let divOrderMessageWrapper = document.createElement("div");
+        divOrderMessageWrapper.className = "order-message-wrapper";
+        fragmentOrderMessage.append(divOrderMessageWrapper);
+
+        let divOrderMessageHeader = document.createElement("div");
+        divOrderMessageHeader.className = "message-header";
+        divOrderMessageHeader.innerHTML = "The order was successfully created. <br> Thank You for Shopping With Us!";
+        divOrderMessageWrapper.append(divOrderMessageHeader);
+
+        let divOrderMessageBody = document.createElement("div");
+        divOrderMessageBody.className = "message-body";
+        divOrderMessageWrapper.append(divOrderMessageBody);
+
+
+        let spanMessageStreet = document.createElement("span");
+        spanMessageStreet.className = "message-street";
+        spanMessageStreet.innerHTML = document.getElementById("order-form").querySelector("#street").value;
+
+        let spanMessageHouse = document.createElement("span");
+        spanMessageHouse.className = "message-house";
+        spanMessageHouse.innerHTML = document.getElementById("order-form").querySelector("#houseNumber").value;
+
+        let spanMessageFlat = document.createElement("span");
+        spanMessageFlat.className = "message-flat";
+        spanMessageFlat.innerHTML = document.getElementById("order-form").querySelector("#flatNumber").value;
+
+        let pOrderMessageDelivery = document.createElement("p");
+        pOrderMessageDelivery.className = "body-delivery";
+        pOrderMessageDelivery.innerHTML = `The delivery address is ${spanMessageStreet.innerHTML} street, ${spanMessageHouse.innerHTML} house, ${spanMessageFlat.innerHTML} flat.`;
+        // pOrderMessageDelivery.innerHTML = `The delivery address is ${document.getElementById("order-form").querySelector("#street").value} street, ${document.getElementById("order-form").querySelector("#houseNumber").value} house, ${document.getElementById("order-form").querySelector("#flatNumber").value} flat.`;
+        divOrderMessageBody.append(pOrderMessageDelivery);
+
+        let spanMessageFirstName = document.createElement("span");
+        spanMessageFirstName.className = "message-firsrName";
+        spanMessageFirstName.innerHTML = document.getElementById("order-form").querySelector("#firstName").value;
+
+        let spanMessageSurname = document.createElement("span");
+        spanMessageSurname.className = "message-firsrName";
+        spanMessageSurname.innerHTML = document.getElementById("order-form").querySelector("#surname").value;
+
+        let pOrderMessageName = document.createElement("p");
+        pOrderMessageName.className = "body-delivery";
+        // pOrderMessageName.innerHTML = "Customer: <span class='message-firsrName'>-</span> <span class='message-firsrName'>-</span>";
+        pOrderMessageName.innerHTML = `Customer is ${spanMessageFirstName.innerHTML} ${spanMessageSurname.innerHTML}.`;
+        divOrderMessageBody.append(pOrderMessageName);
+
+        divContainerMain2.appendChild(fragmentOrderMessage);
+}
+
+
+
+
+/*// NOTIFICATION ABOUT CREATED ORDER */
+
+

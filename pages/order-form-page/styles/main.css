@@ -5,7 +5,7 @@ main{
 
 main h1{
 text-align: center;
-font-size: 72px;
+font-size: 52px;
 margin-top: 30px;
 margin-bottom: 30px;
 color: #c1502e;
@@ -253,3 +253,37 @@ label{
 
 }
 
+/*Order summarized information*/
+.order-message-wrapper{
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 40px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 10px;
+
+  width: 650px;
+  /* border: 1px solid black; */
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+}
+
+.message-header{
+  padding: 20px;
+  border-bottom: 4px solid #f2f2f2;
+  text-shadow: 2px 2px 8px rgb(168, 183, 184);
+
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.5em;
+  line-height: 1.6em;
+  color: #c1502e;
+}
+
+.message-body{
+  padding: 20px;
+  font-size: 1.3em;
+
+}
+/*//Order summarized information*/
