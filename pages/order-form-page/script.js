@@ -61,9 +61,17 @@ let divFooterContent2 = document.createElement("div");
 divFooterContent2.className ="footer-content";
 divContainerFooter2.prepend(divFooterContent2);
 
+let pFooter1 = document.createElement("p");
+pFooter1.textContent = "November, 2022";
+divFooterContent2.append(pFooter1);
+
+let footerLink = document.createElement("a");
+footerLink.href = "https://github.com/ElenaCoder/book-shop/tree/book-shop";
+divFooterContent2.append(footerLink);
+
 let pFooter2 = document.createElement("p");
-pFooter2.textContent = "November, 2022";
-divFooterContent2.append(pFooter2);
+pFooter2.textContent = "GitHub";
+footerLink.append(pFooter2);
 
 mainElem2.after(fragmentFooter2);
 
