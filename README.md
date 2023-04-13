@@ -1,6 +1,11 @@
-# Books shop
-[Catalog page: ](https://elenacoder.github.io/book-shop/pages/catalog-page/) https://elenacoder.github.io/book-shop/pages/catalog-page/
-[Order page: ](https://elenacoder.github.io/book-shop/pages/order-form-page/index.html) https://elenacoder.github.io/book-shop/pages/order-form-page/index.html
+🔔 🔔 🔔
+---
+## Project overview
+This is Book-shop project, which was completed during the study period at Rolling Scopes School from October 2022 to March 2023. It was a 2-week long project, and at the end of each week, students were tasked with performing 4 cross-checks of their peers' work, following the provided technical requirements. CSS, HTML, and JavaScript were utilized in the implementation of the project.
+
+#### [Link to Book-shop project Catalog page](https://elenacoder.github.io/book-shop/pages/catalog-page/)
+#### [Link to Book-shop project Order page](https://elenacoder.github.io/book-shop/pages/order-form-page/)
+---
 
 ## Task
 The books shop owner asked you to create the online shop to buy book with delivery to user's home. He wants the user to be able to look through the books' catalog, see the description of a particular book, add a book to the bag, choose the appropriate date and address to deliver. 
