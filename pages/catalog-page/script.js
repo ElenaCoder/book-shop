@@ -388,9 +388,18 @@ let divFooterContent = document.createElement("div");
 divFooterContent.className ="footer-content";
 divContainerFooter.prepend(divFooterContent);
 
-let pFooter = document.createElement("p");
-pFooter.textContent = "November, 2022";
-divFooterContent.append(pFooter);
+let pFooter1 = document.createElement("p");
+pFooter1.textContent = "November, 2022";
+divFooterContent.append(pFooter1);
+
+let footerLink = document.createElement("a");
+footerLink.href = "https://github.com/ElenaCoder/book-shop/tree/book-shop";
+divFooterContent.append(footerLink);
+
+let pFooter2 = document.createElement("p");
+pFooter2.textContent = "GitHub";
+footerLink.append(pFooter2);
+
 
 mainElem.after(fragmentFooter);
 

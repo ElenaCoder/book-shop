@@ -5,8 +5,8 @@ footer{
 }
 
 .footer-content{
-    padding-left: auto;
-    padding-right: auto;
+    display: flex;
+    justify-content: space-evenly;
     padding-top: 90px;
     padding-bottom: 90px;
 }
@@ -15,4 +15,8 @@ footer{
     color: rgb(220,215,201);
     text-align: center;
     font-size: 24px;
+}
+
+footer a > p:hover{
+    color: #c1502e;
 }
